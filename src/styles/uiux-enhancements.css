@@ -1,0 +1,247 @@
+/* Touch-Friendly Mode Styles */
+body.touch-mode {
+  /* Larger buttons */
+  .btn {
+    min-height: 48px;
+    min-width: 48px;
+    padding: 12px 24px;
+    font-size: 16px;
+  }
+
+  /* Larger inputs */
+  .input,
+  input,
+  select,
+  textarea {
+    min-height: 48px;
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  /* Larger table cells */
+  td,
+  th {
+    padding: 16px !important;
+    font-size: 16px;
+  }
+
+  /* Larger cards */
+  .card {
+    padding: 24px;
+  }
+
+  /* Larger icons */
+  .text-xl {
+    font-size: 2rem;
+  }
+
+  /* More spacing */
+  .space-y-4 > * + * {
+    margin-top: 1.5rem;
+  }
+
+  .space-y-6 > * + * {
+    margin-top: 2rem;
+  }
+
+  /* Larger checkboxes and radios */
+  input[type='checkbox'],
+  input[type='radio'] {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Keyboard Navigation Styles */
+*:focus {
+  outline: 2px solid var(--color-accent, #f97316);
+  outline-offset: 2px;
+}
+
+button:focus,
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--color-accent, #f97316);
+  outline-offset: 2px;
+}
+
+/* Skip to content link for accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-accent, #f97316);
+  color: white;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Keyboard shortcuts indicator */
+.keyboard-shortcut {
+  display: inline-block;
+  padding: 2px 6px;
+  background: #e5e7eb;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.875rem;
+  margin-left: 8px;
+}
+
+/* Theme CSS Variables */
+:root {
+  --color-primary: #1e293b;
+  --color-accent: #f97316;
+  --color-background: #ffffff;
+  --color-text: #1e293b;
+}
+
+/* Apply theme colors */
+.bg-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.text-accent {
+  color: var(--color-accent) !important;
+}
+
+.bg-accent {
+  background-color: var(--color-accent) !important;
+}
+
+.border-accent {
+  border-color: var(--color-accent) !important;
+}
+
+/* Notification Badge */
+.notification-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ef4444;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .card {
+    border: 1px solid #e5e7eb;
+    box-shadow: none;
+  }
+}
+
+/* Responsive touch targets */
+@media (hover: none) and (pointer: coarse) {
+  /* Automatically enable touch-friendly mode on touch devices */
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+  }
+}
+
+/* Loading spinner */
+.spinner {
+  border: 3px solid #f3f4f6;
+  border-top: 3px solid var(--color-accent, #f97316);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Tooltip */
+.tooltip {
+  position: relative;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  background: #1e293b;
+  color: white;
+  font-size: 12px;
+  white-space: nowrap;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+}
+
+/* Category icons */
+.category-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  color: white;
+}
+
+/* Pulse animation for notifications */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
